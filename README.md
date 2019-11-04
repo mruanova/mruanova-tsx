@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 npx create-react-app mruanova-tsx --typescript
+
+npm install -g yarn
+
+yarn add @material-ui/core
+
+yarn add @material-ui/icons
+
+yarn start
 
 ## Available Scripts
 
