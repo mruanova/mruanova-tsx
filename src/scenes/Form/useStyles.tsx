@@ -14,6 +14,7 @@ export const useStyles = makeStyles(theme => ({
     },
     card: {
         display: 'inline-block',
+        fontSize: 10,
         marginLeft: 12,
         marginTop: 12,
         width: 290,
