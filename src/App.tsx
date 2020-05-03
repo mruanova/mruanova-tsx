@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
-  appBar:{
-    backgroundColor:'gray'
+  appBar: {
+    backgroundColor: 'gray'
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -29,25 +29,25 @@ const useStyles = makeStyles(theme => ({
 
 const App: React.FC = () => {
   const classes = useStyles();
-  return (
-    <div className="App">
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>Portfolio</Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Mauricio Ruanova</h1>
-        <h2>Software Engineer</h2>
-        <img src={aws} className="Aws-logo" alt="aws" />
-      </header>
-    </div>
-  );
-}
+    return (
+      <div className="App">
+        <AppBar position="static" className={classes.appBar}>
+          <Toolbar>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>Portfolio</Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1>Mauricio Ruanova</h1>
+          <h2>Software Engineer</h2>
+          <img src={aws} className="Aws-logo" alt="aws" />
+        </header>
+      </div>
+    );
+  }
 
-export default App;
+  export default App;
