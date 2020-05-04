@@ -1,0 +1,47 @@
+@import url('http://fonts.googleapis.com/css?family=Indie+Flower');
+h1 { font-family: 'Indie Flower', arial, serif; font-size:24pt;}
+h2 { font-family: 'Indie Flower', arial, serif; font-size:18pt;}
+.oneAndOnlyDiv {
+    width: 400px;
+    border: 3px solid lightblue;
+    position: relative;
+    margin-bottom: 35px;
+    border-left: '15px solid blue';
+    border-radius: 25px;
+    background-color: lightblue;
+    color: blue;
+    font-size: 12px;
+  }
+  .oneAndOnlyDiv:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 300px;
+    width: 0;
+    border-top: 20px solid lightblue;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+  .bubble {
+    height: 100px;
+    width: 200px;
+    border: 3px solid gray;
+    background: lightgray;
+    position: relative;
+    cursor:pointer;
+  }
+  .triangle {
+    width: 0;
+    border-top: 20px solid black;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    cursor:pointer;
+  }
+  .currency::before {
+    content: '$';
+    position: relative;
+    left: 13px; 
+    top: 0px;
+    color: #999;
+
+  }

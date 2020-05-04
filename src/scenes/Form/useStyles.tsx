@@ -19,49 +19,14 @@ export const useStyles = makeStyles(theme => ({
         marginTop: 12,
         width: 290,
     },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+    button: {
+        backgroundColor: 'lightgreen',
+        marginLeft: 10,
+        color: 'green'
     },
-    arrow_box: {
-        position: 'relative',
-        background: '#88b7d5',
-        border: '4px solid #c2e1f5',
-        "&:after": {
-            borderColor: 'rgba(136, 183, 213, 0)',
-            borderTopColor: '#88b7d5',
-            borderWidth: 30,
-            marginLeft: -30,
-            top: '100%',
-            left: '50%',
-            border: 'solid transparent',
-            content: '',
-            height: 0,
-            width: 0,
-            position: 'absolute',
-            pointerEvents: 'none'
-        },
-        "&:last-before": {
-            borderColor: 'rgba(194, 225, 245, 0)',
-            borderTopColor: '#c2e1f5',
-            borderWidth: 36,
-            marginLeft: -36,
-            top: '100%',
-            left: '50%',
-            border: 'solid transparent',
-            content: '',
-            height: 0,
-            width: 0,
-            position: 'absolute',
-            pointerEvents: 'none'
-        }
-    },
-    instructions: {
-        borderLeft: '15px solid blue',
-        borderRadius: 25,
-        backgroundColor: 'lightblue',
-        fontSize: 12
+    text: {
+        textAlign: 'right',
+        width: 50
     },
     title: {
         fontSize: 14,

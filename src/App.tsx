@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Header from './scenes/Header/Header';
 import Form from './scenes/Form/Form';
 import { useStyles } from './useStyles';
+import './App.css';
 
 const App: React.FC = () => {
   const classes = useStyles();
