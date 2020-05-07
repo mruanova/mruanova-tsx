@@ -102,7 +102,7 @@ const App: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Header />
-      <Drinks data={state.drinks}/>
+      <Drinks drinks={state.drinks} items={state.items}  />
       <InventoryList data={state.items} dispatch={dispatch} />
       <Ingredients data={state.ingredients} dispatch={dispatch} />
     </div >
