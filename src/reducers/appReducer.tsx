@@ -1,8 +1,10 @@
+import State from '../interfaces/State';
+import Action from '../interfaces/Action';
 import ItemType from '../enums/ItemType';
-import Ingredient from '../interfaces/Ingredient';
 import Drink from '../interfaces/Drink';
+import Ingredient from '../interfaces/Ingredient';
 export function appReducer() {
-  return (state: any, action: any) => {
+  return (state: State, action: Action) => {
     const items = state.items;
     const ingredients = state.ingredients;
     const drinks = state.drinks;
@@ -61,16 +63,13 @@ export function appReducer() {
         });
         return { items, ingredients, drinks, sale: new Drink() };
       case 'sale':
-        const newItems = items;
         action.sale.ingredients.forEach((element: Ingredient) => {
-          newItems[element.itemId].units -= element.units;
+          items[element.itemId].units -= element.units;
         });
-        return { items: newItems, ingredients, drinks, sale: action.sale };
+        return { items, ingredients, drinks, sale: action.sale };
       case 'add':
-        const units = action.value;
-        const updatedItems = items;
-        updatedItems[action.item.id].units += units;
-        return { items: updatedItems, ingredients, drinks, sale: new Drink() };
+        items[action.item.id].units += action.value;
+        return { items, ingredients, drinks, sale: new Drink() };
       default:
         throw new Error();
     }

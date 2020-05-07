@@ -1,6 +1,6 @@
 import Drink from '../interfaces/Drink';
 import Item from '../interfaces/Item';
-export function isAvailable(drink: Drink, items: Item[]) {
+export function isAvailable(drink: Drink, items: Item[]): boolean {
     let available = true;
     drink.ingredients.forEach((ingredient) => {
         if (items.length > 0) {
