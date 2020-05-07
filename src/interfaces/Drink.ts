@@ -8,6 +8,7 @@ export class Drink {
   id: number = 0
   name: string = '';
   ingredients: Ingredient[] = [];
+  cost: number = 0;
   constructor(obj?: any) {
     if (obj) {
       if (Object.hasOwnProperty.call(obj, 'id'))
@@ -16,6 +17,8 @@ export class Drink {
         this.name = obj.name;
       if (Object.hasOwnProperty.call(obj, 'ingredients'))
         this.ingredients = obj.ingredients;
+        if (Object.hasOwnProperty.call(obj, 'cost'))
+          this.cost = obj.cost;
     }
   }
 }

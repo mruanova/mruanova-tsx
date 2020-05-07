@@ -12,7 +12,7 @@ import Ingredient from './interfaces/Ingredient';
 import Item from './interfaces/Item';
 import Drink from './interfaces/Drink';
 // scenes
-import Header from './scenes/Header/Header';
+import Sale from './scenes/Sale/Sale';
 import InventoryList from './scenes/InventoryList/InventoryList';
 import Drinks from './scenes/Drinks/Drinks';
 import Ingredients from './scenes/Ingredients/Ingredients';
@@ -23,7 +23,8 @@ const App: React.FC = () => {
   const items: Item[] = [];
   const ingredients: Ingredient[] = [];
   const drinks: Drink[] = [];
-  const initialState = { items, ingredients, drinks };
+  const sale = new Drink();
+  const initialState = { items, ingredients, drinks, sale };
   const reducer = (state: any, action: any) => {
     switch (action.type) {
       case 'reset':
@@ -43,25 +44,25 @@ const App: React.FC = () => {
             { itemId: ItemType.Coffee, units: 3 },
             { itemId: ItemType.Sugar, units: 1 },
             { itemId: ItemType.Cream, units: 1 },
-          ]
+          ], cost: 0,
         });
         drinks.push({
           id: 1, name: 'Decaff Coffee', ingredients: [
             { itemId: ItemType.DecafCoffee, units: 3 },
             { itemId: ItemType.Sugar, units: 1 },
             { itemId: ItemType.Cream, units: 1 },
-          ]
+          ], cost: 0,
         });
         drinks.push({
           id: 2, name: 'Caffe Latte', ingredients: [
             { itemId: ItemType.Espresso, units: 2 },
             { itemId: ItemType.SteamedMilk, units: 1 },
-          ]
+          ], cost: 0,
         });
         drinks.push({
           id: 3, name: 'Caffe Americano', ingredients: [
             { itemId: ItemType.Espresso, units: 3 },
-          ]
+          ], cost: 0,
         });
         drinks.push({
           id: 4, name: 'Caffe Mocha', ingredients: [
@@ -69,22 +70,21 @@ const App: React.FC = () => {
             { itemId: ItemType.Cocoa, units: 1 },
             { itemId: ItemType.SteamedMilk, units: 1 },
             { itemId: ItemType.WhippedCream, units: 1 },
-          ]
+          ], cost: 0,
         });
         drinks.push({
           id: 5, name: 'Capuccino', ingredients: [
             { itemId: ItemType.Espresso, units: 2 },
             { itemId: ItemType.SteamedMilk, units: 1 },
             { itemId: ItemType.Sugar, units: 1 },
-          ]
+          ], cost: 0,
         });
-        return { items, ingredients, drinks };
-      case 'increment':
-        // const count = state.count++;
-        return { items, ingredients, drinks };
-      case 'decrement':
+        return { items, ingredients, drinks, sale };
+      case 'sale':
+        return { items, ingredients, drinks, sale: action.sale };
+      case 'add':
         // const count = state.count--;
-        return { items, ingredients, drinks };
+        return { items, ingredients, drinks, sale };
       default:
         throw new Error();
     }
@@ -101,8 +101,8 @@ const App: React.FC = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Header />
-      <Drinks drinks={state.drinks} items={state.items}  />
+      <Sale sale={state.sale} />
+      <Drinks drinks={state.drinks} items={state.items} dispatch={dispatch} />
       <InventoryList data={state.items} dispatch={dispatch} />
       <Ingredients data={state.ingredients} dispatch={dispatch} />
     </div >
