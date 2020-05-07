@@ -84,11 +84,14 @@ const App: React.FC = () => {
       case 'sale':
         const newItems = items;
         action.sale.ingredients.forEach((element: Ingredient) => {
-          newItems[element.itemId].units -= +element.units;
+          newItems[element.itemId].units -= element.units;
         });
         return { items: newItems, ingredients, drinks, sale: action.sale };
       case 'add':
-        return { items, ingredients, drinks, sale };
+        const units = action.value;
+        const updatedItems = items;
+        updatedItems[action.item.id].units += units;
+        return { items: updatedItems, ingredients, drinks, sale };
       default:
         throw new Error();
     }
