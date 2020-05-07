@@ -18,14 +18,20 @@ const Ingredients = (props: Props) => {
     };
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const temp = parseInt(event.target.value);
-        setValue(temp);
+        if (temp > 0) {
+            setValue(temp);
+        }else{
+            setValue(0);
+        }
     };
-    data.forEach((element, index) => {
+    data.forEach((element) => {
+        const inputId = `text${element.id}`;
+        const buttonId = `button${element.id}`;
         indents.push(
-            <div key={index}>
+            <div key={element.id}>
                 <div className={classes.name}>{element.name}</div>
-                <input id="text" className="text" type="number" onChange={handleChange} />
-                <button id="button" className="button" onClick={handleClick(element)}>Add</button>
+                <input id={inputId} className="text" type="number" onChange={handleChange} />
+                <button id={buttonId} className="button" onClick={handleClick(element)}>Add</button>
             </div>
         )
     });

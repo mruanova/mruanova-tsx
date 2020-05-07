@@ -34,7 +34,7 @@ const App: React.FC = () => {
         items.push({ id: ItemType.DecafCoffee, name: 'decaf-coffee', units: 10, cost: 0.75 });
         items.push({ id: ItemType.Espresso, name: 'espresso', units: 10, cost: 1.00 });
         items.push({ id: ItemType.Sugar, name: 'sugar', units: 10, cost: 0.25 });
-        items.push({ id: ItemType.Coffee, name: 'cocoa', units: 10, cost: 0.50 });
+        items.push({ id: ItemType.Cocoa, name: 'cocoa', units: 10, cost: 0.50 });
         items.push({ id: ItemType.Cream, name: 'cream', units: 10, cost: 0.25 });
         items.push({ id: ItemType.WhippedCream, name: 'whipped-cream', units: 10, cost: 0.55 });
         items.push({ id: ItemType.FoamedCream, name: 'foamed-cream', units: 10, cost: 0.45 });
