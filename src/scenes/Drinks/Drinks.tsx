@@ -14,7 +14,7 @@ const Drinks = (props: Props) => {
     const classes = useStyles();
     const { drinks, items, dispatch } = props;
     const indents: any[] = [];
-    const instructions = 'Click reset to initialize the inventory.';
+    const instructions = 'Click reset to start the inventory.';
     const handleClick = (drink: any) => (event: React.MouseEvent | React.KeyboardEvent) => {
         dispatch({ type: 'sale', sale: drink });
     };

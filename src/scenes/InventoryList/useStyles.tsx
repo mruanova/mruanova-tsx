@@ -2,13 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles(theme => ({
     appHeader: {
         border: '1px solid white',
-        width: 320,
-        minHeight: 320,
+        width: 240,
+        minHeight: 420,
         display: 'inline-block',
-        padding: 30,
+        paddingLeft: 30,
+        paddingRight: 30,
         verticalAlign: 'top',
-        marginTop: 10,
-        marginLeft: 10
+        margin: 10
     },
     appLink: {
         color: 'goldenrod'
@@ -20,6 +20,18 @@ export const useStyles = makeStyles(theme => ({
     cost: {
         display: 'inline-block',
         marginRight: 5
+    },
+    reset: {
+        backgroundColor: 'goldenrod',
+        borderRadius: 5,
+        color: 'white',
+        fontWeight: 'bold',
+        marginTop: 10,
+        width: 240,
+        '&:hover': { textDecoration: 'underline' },
+    },
+    row: {
+        marginBottom: 10
     },
     units: {
         display: 'inline-block',
