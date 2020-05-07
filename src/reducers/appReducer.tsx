@@ -6,7 +6,6 @@ export function appReducer() {
     const items = state.items;
     const ingredients = state.ingredients;
     const drinks = state.drinks;
-    const sale = state.sale;
     switch (action.type) {
       case 'reset':
         items.length = 0;
