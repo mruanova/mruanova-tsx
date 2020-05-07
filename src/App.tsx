@@ -23,9 +23,13 @@ const App: React.FC = () => {
   const items: Item[] = [];
   const ingredients: Ingredient[] = [];
   const drinks: Drink[] = [];
-  const sale = new Drink();
-  const initialState = { items, ingredients, drinks, sale };
+  const drink = new Drink();
+  const initialState = { items, ingredients, drinks, sale: drink };
   const reducer = (state: any, action: any) => {
+    const items = state.items;
+    const ingredients = state.ingredients;
+    const drinks = state.drinks;
+    const sale = state.sale;
     switch (action.type) {
       case 'reset':
         items.length = 0;

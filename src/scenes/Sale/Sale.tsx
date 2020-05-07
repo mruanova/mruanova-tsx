@@ -23,7 +23,7 @@ const Sale = (props: Props) => {
                     <div>Receipt: {Date.now()}</div>
                     <div>{timestamp}</div>
                     <div>{sale.name}</div>
-                    <div>${sale.cost}</div>
+                    <div>${sale.cost.toFixed(2)}</div>
                 </div>
             ) : (<div>{instructions}</div>)
             }
