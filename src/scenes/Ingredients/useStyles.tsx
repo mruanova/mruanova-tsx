@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles(theme => ({
-    appHeader: {
+    box: {
         border: '1px solid white',
         width: 240,
         minHeight: 420,

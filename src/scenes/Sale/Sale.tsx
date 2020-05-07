@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStyles } from './useStyles';
 import Drink from '../../interfaces/Drink';
-// import _ from 'lodash';
 
 interface Props {
     sale: Drink;
@@ -13,10 +12,12 @@ const Sale = (props: Props) => {
     const instructions = 'Select a drink from the list.';
     const timestamp = new Date().toString();
     const cashier = 'Mauricio Ruanova-Hurtado';
+    const title = 'Barista Matic';
+    const subtitle = 'Would you like a coffee ?';
     return (
-        <div className={classes.appHeader}>
-            <h1>Barista Matic</h1>
-            <h2 className={classes.appLink}>Would you like a coffee?</h2>
+        <div className={classes.box}>
+            <h1>{title}</h1>
+            <h2 className={classes.appLink}>{subtitle}</h2>
             {sale.name.length > 0 ? (
                 <div>
                     <div>{'SALE!'}</div>
@@ -33,8 +34,3 @@ const Sale = (props: Props) => {
 }
 
 export default Sale;
-/*
-export default React.memo(Sale, (prevProps, nextProps) =>
-  _.isEqual(prevProps, nextProps),
-);
-*/

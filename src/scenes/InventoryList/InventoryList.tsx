@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStyles } from './useStyles';
 import Item from '../../interfaces/Item';
-// import _ from 'lodash';
 
 interface Props {
     data: Item[];
@@ -12,6 +11,8 @@ const InventoryList = (props: Props) => {
     const classes = useStyles();
     const { data, dispatch } = props;
     const instructions = 'Click reset to start the inventory.'
+    const title = 'Inventory';
+    const subtitle = 'List of the ingredients available :';
     const handleReset = () => {
         dispatch({ type: 'reset' });
     };
@@ -26,9 +27,9 @@ const InventoryList = (props: Props) => {
         )
     });
     return (
-        <div className={classes.appHeader}>
-            <h1>Inventory</h1>
-            <h2 className={classes.appLink}>List of the ingredients available:</h2>
+        <div className={classes.box}>
+            <h1>{title}</h1>
+            <h2 className={classes.appLink}>{subtitle}</h2>
             {
                 indents.length > 0 ? (
                     indents
@@ -40,8 +41,3 @@ const InventoryList = (props: Props) => {
 }
 
 export default InventoryList;
-/*
-export default React.memo(InventoryList, (prevProps, nextProps) =>
-  _.isEqual(prevProps, nextProps),
-);
-*/
