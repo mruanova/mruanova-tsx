@@ -2,9 +2,6 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from './useStyles';
 import ItemType from './enums/ItemType';
 // interfaces
@@ -51,7 +48,7 @@ const App: React.FC = () => {
           ], cost: 0,
         });
         drinks.push({
-          id: 1, name: 'Decaff Coffee', ingredients: [
+          id: 1, name: 'Decaf Coffee', ingredients: [
             { itemId: ItemType.DecafCoffee, units: 3 },
             { itemId: ItemType.Sugar, units: 1 },
             { itemId: ItemType.Cream, units: 1 },
@@ -85,9 +82,12 @@ const App: React.FC = () => {
         });
         return { items, ingredients, drinks, sale };
       case 'sale':
-        return { items, ingredients, drinks, sale: action.sale };
+        const newItems = items;
+        action.sale.ingredients.forEach((element: Ingredient) => {
+          newItems[element.itemId].units -= +element.units;
+        });
+        return { items: newItems, ingredients, drinks, sale: action.sale };
       case 'add':
-        // const count = state.count--;
         return { items, ingredients, drinks, sale };
       default:
         throw new Error();
@@ -98,11 +98,7 @@ const App: React.FC = () => {
     <div className={classes.app}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>Barista-Matic</Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
       <Sale sale={state.sale} />
