@@ -13,7 +13,7 @@ const Ingredients = (props: Props) => {
     const { data, dispatch } = props;
     const instructions = 'Click reset to start the inventory.'
     const indents: any[] = [];
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(1);
     const handleClick = (item: any) => (event: React.MouseEvent | React.KeyboardEvent) => {
         console.log('handleClick.item', item);
         console.log('handleClick.event', event);

@@ -34,7 +34,7 @@ const InventoryList = (props: Props) => {
                     indents
                 ) : (<div>{instructions}</div>)
             }
-            <button id="reset" className={classes.reset} onClick={handleReset}>Reset</button>
+            <button id="reset" className={classes.reset} onClick={handleReset}>Reset Inventory</button>
         </div>
     );
 }
