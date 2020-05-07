@@ -18,7 +18,9 @@ const InventoryList = (props: Props) => {
     data.forEach((element, index) => {
         indents.push(
             <div key={index}>
-                ${element.cost.toFixed(2)} {element.name} ({element.units})
+                <div className={classes.cost}>${element.cost.toFixed(2)}</div>
+                <div className={classes.name}>{element.name} </div>
+                <div className={classes.units}>({element.units})</div>
             </div>
         )
     });

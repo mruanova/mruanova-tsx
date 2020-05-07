@@ -104,7 +104,7 @@ const App: React.FC = () => {
       <Sale sale={state.sale} />
       <Drinks drinks={state.drinks} items={state.items} dispatch={dispatch} />
       <InventoryList data={state.items} dispatch={dispatch} />
-      <Ingredients data={state.ingredients} dispatch={dispatch} />
+      <Ingredients data={state.items} dispatch={dispatch} />
     </div >
   );
 }
