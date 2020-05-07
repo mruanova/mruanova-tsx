@@ -17,11 +17,13 @@ const Ingredients = (props: Props) => {
     const handleChange = (event: any) => {
         setValue(event.target.value);
     };
+    /*
     data.forEach((element) => {
         indents.push(<div>${element.cost} {element.name}
             ({element.units})
              </div>)
     })
+    */
     return (
         <div className={classes.appHeader}>
             <h1>Ingredients</h1>

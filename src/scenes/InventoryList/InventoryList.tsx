@@ -1,13 +1,13 @@
 import React from 'react';
 import { useStyles } from './useStyles';
-import Ingredient from '../../interfaces/Ingredient';
+import Item from '../../interfaces/Item';
 
 interface Props {
-    data: Ingredient[];
+    data: Item[];
     dispatch: Function;
 }
 
-const Inventory = (props: Props) => {
+const InventoryList = (props: Props) => {
     const classes = useStyles();
     const { data, dispatch } = props;
     const instructions = 'Click reset to initialize the inventory.'
@@ -34,4 +34,4 @@ const Inventory = (props: Props) => {
     );
 }
 
-export default Inventory;
+export default InventoryList;
