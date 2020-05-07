@@ -17,7 +17,10 @@ export const useStyles = makeStyles(theme => ({
         display: 'inline-block',
         width: 125
     },
-    text: { width: 50 },
+    text: {
+        textAlign: 'right',
+        width: 50
+    },
     button: {
         backgroundColor: 'goldenrod',
         borderRadius: 5,
