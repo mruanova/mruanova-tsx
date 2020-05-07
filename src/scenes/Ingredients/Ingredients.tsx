@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStyles } from './useStyles';
 import Item from '../../interfaces/Item';
+// import _ from 'lodash';
 
 interface Props {
     data: Item[];
@@ -14,9 +15,12 @@ const Ingredients = (props: Props) => {
     const indents: any[] = [];
     const [value, setValue] = React.useState(0);
     const handleClick = (item: any) => (event: React.MouseEvent | React.KeyboardEvent) => {
+        console.log('handleClick.item', item);
+        console.log('handleClick.event', event);
         dispatch({ type: 'add', value, item });
     };
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('handleChange', event);
         const temp = parseInt(event.target.value);
         if (temp > 0) {
             setValue(temp);
@@ -49,3 +53,8 @@ const Ingredients = (props: Props) => {
 }
 
 export default Ingredients;
+/*
+export default React.memo(Ingredients, (prevProps, nextProps) =>
+  _.isEqual(prevProps, nextProps),
+);
+*/

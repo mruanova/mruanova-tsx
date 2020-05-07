@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStyles } from './useStyles';
 import Drink from '../../interfaces/Drink';
+// import _ from 'lodash';
 
 interface Props {
     sale: Drink;
@@ -32,3 +33,8 @@ const Sale = (props: Props) => {
 }
 
 export default Sale;
+/*
+export default React.memo(Sale, (prevProps, nextProps) =>
+  _.isEqual(prevProps, nextProps),
+);
+*/

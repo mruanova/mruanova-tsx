@@ -22,5 +22,9 @@ export const useStyles = makeStyles(theme => ({
         cursor: 'pointer',
         paddingLeft: 5,
         marginBottom: 10
-    }
-}));
+    },
+}),
+    { name: 'Drinks' },
+);
+
+export default useStyles;

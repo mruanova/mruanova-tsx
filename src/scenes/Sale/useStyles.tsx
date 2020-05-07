@@ -13,4 +13,8 @@ export const useStyles = makeStyles(theme => ({
     appLink: {
         color: 'goldenrod'
     },
-}));
+}),
+    { name: 'Sales' },
+);
+
+export default useStyles;

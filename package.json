@@ -45,6 +45,8 @@
     "@storybook/addon-links": "^5.3.12",
     "@storybook/addons": "^5.3.12",
     "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.12"
+    "@storybook/react": "^5.3.12",
+    "@types/lodash": "^4.14.150",
+    "lodash": "^4.17.15"
   }
 }

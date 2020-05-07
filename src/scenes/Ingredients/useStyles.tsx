@@ -13,8 +13,12 @@ export const useStyles = makeStyles(theme => ({
     appLink: {
         color: 'goldenrod'
     },
-    name : {
+    name: {
         display: 'inline-block',
         width: 125
-    }
-}));
+    },
+}),
+    { name: 'Ingredients' },
+);
+
+export default useStyles;

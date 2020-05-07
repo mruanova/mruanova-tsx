@@ -88,6 +88,7 @@ const App: React.FC = () => {
         });
         return { items: newItems, ingredients, drinks, sale: action.sale };
       case 'add':
+        console.log('action', action);
         const units = action.value;
         const updatedItems = items;
         updatedItems[action.item.id].units += units;

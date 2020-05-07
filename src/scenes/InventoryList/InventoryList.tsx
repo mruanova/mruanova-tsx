@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStyles } from './useStyles';
 import Item from '../../interfaces/Item';
+// import _ from 'lodash';
 
 interface Props {
     data: Item[];
@@ -39,3 +40,8 @@ const InventoryList = (props: Props) => {
 }
 
 export default InventoryList;
+/*
+export default React.memo(InventoryList, (prevProps, nextProps) =>
+  _.isEqual(prevProps, nextProps),
+);
+*/

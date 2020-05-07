@@ -23,5 +23,9 @@ export const useStyles = makeStyles(theme => ({
     },
     units: {
         display: 'inline-block',
-    }
-}));
+    },
+}),
+    { name: 'Inventory' },
+);
+
+export default useStyles;
