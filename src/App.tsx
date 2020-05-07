@@ -13,7 +13,7 @@ import InventoryList from './scenes/InventoryList/InventoryList';
 import Drinks from './scenes/Drinks/Drinks';
 import Ingredients from './scenes/Ingredients/Ingredients';
 import './App.css';
-import { appReducer } from './appReducer';
+import { appReducer } from './reducers/appReducer';
 
 const App: React.FC = () => {
   const classes = useStyles();
