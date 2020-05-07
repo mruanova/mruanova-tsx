@@ -6,6 +6,8 @@ npm install -g yarn
 
 yarn start
 
+yarn test
+
 ### `npm start`
 
 Runs the app in the development mode.<br />

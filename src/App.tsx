@@ -33,8 +33,8 @@ const App: React.FC = () => {
       </AppBar>
       <Sale sale={state.sale} />
       <Drinks drinks={state.drinks} items={state.items} dispatch={dispatch} />
-      <InventoryList data={state.items} dispatch={dispatch} />
-      <Ingredients data={state.items} dispatch={dispatch} />
+      <InventoryList items={state.items} dispatch={dispatch} />
+      <Ingredients items={state.items} dispatch={dispatch} />
     </div >
   );
 }

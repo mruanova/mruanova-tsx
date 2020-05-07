@@ -3,22 +3,22 @@ import { useStyles } from './useStyles';
 import Item from '../../interfaces/Item';
 
 interface Props {
-    data: Item[];
+    items: Item[];
     dispatch: Function;
 }
 
 const Ingredients = (props: Props) => {
     const classes = useStyles();
-    const { data, dispatch } = props;
+    const { items, dispatch } = props;
     const instructions = 'Click reset to start the inventory.'
     const title = 'Ingredients';
-    const subtitle = 'Here you can add ingredients :';
+    const subtitle = 'Here you can restock ingredients :';
     const indents: any[] = [];
     const [value] = React.useState(1);
     const handleClick = (item: Item) => (_event: React.MouseEvent | React.KeyboardEvent) => {
         dispatch({ type: 'add', value, item });
     };
-    data.forEach((element) => {
+    items.forEach((element) => {
         const buttonId = `button${element.id}`;
         indents.push(
             <div key={element.id}>

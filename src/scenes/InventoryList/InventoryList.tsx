@@ -3,13 +3,13 @@ import { useStyles } from './useStyles';
 import Item from '../../interfaces/Item';
 
 interface Props {
-    data: Item[];
+    items: Item[];
     dispatch: Function;
 }
 
 const InventoryList = (props: Props) => {
     const classes = useStyles();
-    const { data, dispatch } = props;
+    const { items, dispatch } = props;
     const instructions = 'Click reset to start the inventory.'
     const title = 'Inventory';
     const subtitle = 'List of the ingredients available :';
@@ -17,7 +17,7 @@ const InventoryList = (props: Props) => {
         dispatch({ type: 'reset' });
     };
     const indents: any[] = [];
-    data.forEach((element, index) => {
+    items.forEach((element, index) => {
         indents.push(
             <div key={index} className={classes.row}>
                 <div className={classes.cost}>${element.cost.toFixed(2)}</div>

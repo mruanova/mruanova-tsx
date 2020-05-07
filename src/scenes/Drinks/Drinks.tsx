@@ -2,6 +2,7 @@ import React from 'react';
 import { useStyles } from './useStyles';
 import Drink from '../../interfaces/Drink';
 import Item from '../../interfaces/Item';
+import { isAvailable } from '../../utilities/isAvailable';
 
 interface Props {
     drinks: Drink[];
@@ -20,17 +21,8 @@ const Drinks = (props: Props) => {
         dispatch({ type: 'sale', sale: drink });
     };
     drinks.forEach((drink, index) => {
-        let available = true;
         drink.cost = 0;
-        drink.ingredients.forEach((ingredient) => {
-            if (items.length > 0) {
-                if (ingredient.units > items[ingredient.itemId].units) {
-                    available = false;
-                } else {
-                    drink.cost += items[ingredient.itemId].cost;
-                }
-            }
-        });
+        const available = isAvailable(drink, items);
         if (available) {
             indents.push(
                 <div className={classes.button} key={index} onClick={handleClick(drink)}>
