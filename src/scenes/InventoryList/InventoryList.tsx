@@ -16,10 +16,8 @@ const InventoryList = (props: Props) => {
     };
     const indents: any[] = [];
     data.forEach((element, index) => {
-        indents.push(<div key={index}>${element.cost} {element.name}
-            ({element.units})
-             </div>)
-    })
+        indents.push(<div key={index}>${element.cost} {element.name} ({element.units})</div>)
+    });
     return (
         <div className={classes.appHeader}>
             <h1>Inventory</h1>

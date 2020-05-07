@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from './useStyles';
+import ItemType from './enums/ItemType';
 // interfaces
 import Ingredient from './interfaces/Ingredient';
 import Item from './interfaces/Item';
@@ -19,7 +20,7 @@ import './App.css';
 
 const App: React.FC = () => {
   const classes = useStyles();
-  const items: Item[]=[];
+  const items: Item[] = [];
   const ingredients: Ingredient[] = [];
   const drinks: Drink[] = [];
   const initialState = { items, ingredients, drinks };
@@ -27,19 +28,56 @@ const App: React.FC = () => {
     switch (action.type) {
       case 'reset':
         items.length = 0;
-        items.push({ id: 0, name: 'coffee', units: 10, cost: 0.75 });
-        items.push({ id: 1, name: 'decaf-coffee', units: 10, cost: 0.75 });
-        items.push({ id: 2, name: 'espresso', units: 10, cost: 1.00 });
-        items.push({ id: 3, name: 'sugar', units: 10, cost: 0.25 });
-        items.push({ id: 4, name: 'cocoa', units: 10, cost: 0.50 });
-        items.push({ id: 5, name: 'cream', units: 10, cost: 0.25 });
-        items.push({ id: 6, name: 'whipped-cream', units: 10, cost: 0.55 });
-        items.push({ id: 7, name: 'foamed-cream', units: 10, cost: 0.45 });
-        items.push({ id: 8, name: 'steamed-milk', units: 10, cost: 0.35 });
+        items.push({ id: ItemType.Coffee, name: 'coffee', units: 10, cost: 0.75 });
+        items.push({ id: ItemType.DecafCoffee, name: 'decaf-coffee', units: 10, cost: 0.75 });
+        items.push({ id: ItemType.Espresso, name: 'espresso', units: 10, cost: 1.00 });
+        items.push({ id: ItemType.Sugar, name: 'sugar', units: 10, cost: 0.25 });
+        items.push({ id: ItemType.Coffee, name: 'cocoa', units: 10, cost: 0.50 });
+        items.push({ id: ItemType.Cream, name: 'cream', units: 10, cost: 0.25 });
+        items.push({ id: ItemType.WhippedCream, name: 'whipped-cream', units: 10, cost: 0.55 });
+        items.push({ id: ItemType.FoamedCream, name: 'foamed-cream', units: 10, cost: 0.45 });
+        items.push({ id: ItemType.SteamedMilk, name: 'steamed-milk', units: 10, cost: 0.35 });
         drinks.length = 0;
-        drinks.push({ id: 0, name: 'Coffee', ingredients: [
-          
-        ] })
+        drinks.push({
+          id: 0, name: 'Coffee', ingredients: [
+            { itemId: ItemType.Coffee, units: 3 },
+            { itemId: ItemType.Sugar, units: 1 },
+            { itemId: ItemType.Cream, units: 1 },
+          ]
+        });
+        drinks.push({
+          id: 1, name: 'Decaff Coffee', ingredients: [
+            { itemId: ItemType.DecafCoffee, units: 3 },
+            { itemId: ItemType.Sugar, units: 1 },
+            { itemId: ItemType.Cream, units: 1 },
+          ]
+        });
+        drinks.push({
+          id: 2, name: 'Caffe Latte', ingredients: [
+            { itemId: ItemType.Espresso, units: 2 },
+            { itemId: ItemType.SteamedMilk, units: 1 },
+          ]
+        });
+        drinks.push({
+          id: 3, name: 'Caffe Americano', ingredients: [
+            { itemId: ItemType.Espresso, units: 3 },
+          ]
+        });
+        drinks.push({
+          id: 4, name: 'Caffe Mocha', ingredients: [
+            { itemId: ItemType.Espresso, units: 1 },
+            { itemId: ItemType.Cocoa, units: 1 },
+            { itemId: ItemType.SteamedMilk, units: 1 },
+            { itemId: ItemType.WhippedCream, units: 1 },
+          ]
+        });
+        drinks.push({
+          id: 5, name: 'Capuccino', ingredients: [
+            { itemId: ItemType.Espresso, units: 2 },
+            { itemId: ItemType.SteamedMilk, units: 1 },
+            { itemId: ItemType.Sugar, units: 1 },
+          ]
+        });
         return { items, ingredients, drinks };
       case 'increment':
         // const count = state.count++;
@@ -64,8 +102,8 @@ const App: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Header />
+      <Drinks data={state.drinks}/>
       <InventoryList data={state.items} dispatch={dispatch} />
-      <Drinks />
       <Ingredients data={state.ingredients} dispatch={dispatch} />
     </div >
   );

@@ -3,6 +3,7 @@ export const useStyles = makeStyles(theme => ({
     appHeader: {
         border: '1px solid white',
         width: 320,
+        minHeight: 320,
         display: 'inline-block',
         padding: 30,
         verticalAlign: 'top',
