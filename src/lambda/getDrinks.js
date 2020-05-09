@@ -2,7 +2,7 @@ var AWS = require('aws-sdk');
 var docClient = new AWS.DynamoDB.DocumentClient({ region: 'us-west-2' });
 exports.handler = function (event, context, callback) {
     let params = {
-        TableName: 'items',
+        TableName: 'drinks',
         Limit: 100
     };
     docClient.scan(params, function (err, data) {

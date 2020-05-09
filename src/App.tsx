@@ -15,16 +15,15 @@ import Drinks from './scenes/Drinks/Drinks';
 import Ingredients from './scenes/Ingredients/Ingredients';
 // services
 import ItemService from './services/ItemService';
-// utilities
-import { initDrinks } from './utilities/initDrinks';
+import DrinksService from './services/DrinksService';
 
 const App: React.FC = () => {
   const classes = useStyles();
   const defaultItems: Item[] = [];
   const [items, setItems] = React.useState(defaultItems);
 
-  const drinks: Drink[] = [];
-  initDrinks(drinks);
+  const defaultDrinks: Drink[] = [];
+  const [drinks, setDrinks] = React.useState(defaultDrinks);
 
   const defaultSale = new Drink();
   const [sale, setSale] = React.useState(defaultSale);
@@ -32,7 +31,6 @@ const App: React.FC = () => {
   React.useEffect(() => {
     ItemService.getItems()
       .then((response: any) => {
-        console.log('getItems', response.data.Items);
         const temp = response.data.Items.sort((a: Item, b: Item) => {
           return a.id - b.id;
         });
@@ -41,10 +39,19 @@ const App: React.FC = () => {
       .catch((error: any) => {
         console.error(error);
       });
+    DrinksService.getDrinks()
+      .then((response: any) => {
+        const temp = response.data.Items.sort((a: Item, b: Item) => {
+          return a.id - b.id;
+        });
+        setDrinks(temp);
+      })
+      .catch((error: any) => {
+        console.error(error);
+      });
   }, [sale]);
 
   const handleDrinks = (action: Action) => {
-    console.log('handleDrinks', action);
     action.sale.ingredients.forEach((ingredient: Ingredient) => {
       const item = items.find((item: Item) => {
         return item.id === ingredient.itemId
@@ -52,10 +59,8 @@ const App: React.FC = () => {
       if (item) {
         const temp = new Item(item);
         temp.units -= ingredient.units;
-        console.log('temp', temp);
         ItemService.putItems(temp)
           .then((_response: any) => {
-            console.log('remove');
             setSale(action.sale);
           })
           .catch((error: any) => {
@@ -66,17 +71,14 @@ const App: React.FC = () => {
   };
 
   const handleIngredients = (action: Action) => {
-    console.log('handleIngredients', action);
     const item = items.find((item: Item) => {
       return item.id === action.item.id
     });
     if (item) {
       const temp = new Item(item);
       temp.units += 1;
-      console.log('temp', temp);
       ItemService.putItems(temp)
         .then((_response: any) => {
-          console.log('add');
           setSale(action.sale);
         })
         .catch((error: any) => {
