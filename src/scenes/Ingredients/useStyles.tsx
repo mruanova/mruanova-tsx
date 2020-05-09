@@ -24,6 +24,7 @@ export const useStyles = makeStyles(theme => ({
         fontWeight: 'bold',
         marginTop: 10,
         marginLeft: 10,
+        textTransform: 'uppercase',
         height: 22,
         width: 230,
         '&:hover': { textDecoration: 'underline' },
