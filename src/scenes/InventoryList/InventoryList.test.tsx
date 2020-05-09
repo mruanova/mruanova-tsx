@@ -8,7 +8,6 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<InventoryList
     items={items}
-    dispatch={() => { }}
   />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

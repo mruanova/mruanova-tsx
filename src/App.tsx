@@ -94,7 +94,7 @@ const App: React.FC = () => {
           <Typography variant="h6" className={classes.title}>Barista-Matic</Typography>
         </Toolbar>
       </AppBar>
-      <Sale sale={sale} />
+      <Sale sale={sale} items={items} />
       <Drinks drinks={drinks} items={items} dispatch={handleDrinks} />
       <InventoryList items={items} />
       <Ingredients items={items} dispatch={handleIngredients} />

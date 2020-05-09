@@ -15,7 +15,20 @@ export const useStyles = makeStyles(theme => ({
     },
     row:{
         marginBottom:10
-    }
+    },
+    name: {
+        display: 'inline-block',
+        width: 140
+    },
+    units: {
+        display: 'inline-block',
+        width: 45
+    },
+    cost: {
+        display: 'inline-block',
+        marginRight: 5,
+        width: 50
+    },
 }),
     { name: 'Sales' },
 );

@@ -13,7 +13,7 @@ const Ingredients = (props: Props) => {
     const { items, dispatch } = props;
     const instructions = 'Click +1 to restock the inventory.';
     const title = 'Ingredients';
-    const subtitle = 'Here you can restock ingredients :';
+    const subtitle = 'Restock ingredients';
     const indents: any[] = [];
     const [value] = React.useState(1);
     const handleClick = (item: Item) => (_event: React.MouseEvent | React.KeyboardEvent) => {
@@ -32,7 +32,7 @@ const Ingredients = (props: Props) => {
     return (
         <div className={classes.box}>
             <h1>{title}</h1>
-            <h2 className={classes.appLink}>{subtitle}</h2>
+            <h2 className={classes.subtitle}>{subtitle}</h2>
             {
                 indents.length > 0 ? (
                     indents

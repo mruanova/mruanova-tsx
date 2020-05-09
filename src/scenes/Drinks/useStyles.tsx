@@ -10,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
         verticalAlign: 'top',
         margin: 10
     },
-    appLink: {
+    subtitle: {
         color: 'goldenrod'
     },
     button: {
@@ -23,6 +23,15 @@ export const useStyles = makeStyles(theme => ({
         paddingLeft: 5,
         marginBottom: 10
     },
+    name: {
+        display: 'inline-block',
+        width: 125
+    },
+    cost: {
+        display: 'inline-block',
+        textAlign: 'right',
+        width: 100
+    }
 }),
     { name: 'Drinks' },
 );

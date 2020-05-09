@@ -4,6 +4,7 @@ import Drink from '../../interfaces/Drink';
 import Item from '../../interfaces/Item';
 import { isAvailable } from '../../utilities/isAvailable';
 import Action from '../../interfaces/Action';
+import {format} from 'date-fns';
 
 interface Props {
     drinks: Drink[];
@@ -17,10 +18,10 @@ const Drinks = (props: Props) => {
     const indents: any[] = [];
     const instructions = 'Click +1 to restock the inventory.';
     const title = 'Drinks';
-    const subtitle = 'List of drinks available for sale :';
+    const subtitle = 'List of drinks available for sale';
     const cashier = 'Mauricio Ruanova';
     const handleClick = (drink: Drink) => (_event: React.MouseEvent | React.KeyboardEvent) => {
-        drink.timestamp = new Date().toString();
+        drink.timestamp = format(new Date(), "MM/dd/yyyy hh:mm aaaaa'm'");
         drink.receipt = Date.now().toString();
         drink.cashier = cashier;
         const action = new Action({ type: 'sale', sale: drink });
@@ -32,7 +33,8 @@ const Drinks = (props: Props) => {
         if (available) {
             indents.push(
                 <div className={classes.button} key={index} onClick={handleClick(drink)}>
-                    {drink.name} ${drink.cost.toFixed(2)}
+                    <div className={classes.name}>{drink.name}</div>
+                    <div className={classes.cost}>${drink.cost.toFixed(2)}</div>
                 </div>
             )
         }
@@ -40,7 +42,7 @@ const Drinks = (props: Props) => {
     return (
         <div className={classes.box}>
             <h1>{title}</h1>
-            <h2 className={classes.appLink}>{subtitle}</h2>
+            <h2 className={classes.subtitle}>{subtitle}</h2>
             {
                 indents.length > 0 ? (
                     indents
