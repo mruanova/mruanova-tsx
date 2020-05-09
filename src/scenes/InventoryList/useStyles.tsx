@@ -15,14 +15,15 @@ export const useStyles = makeStyles(theme => ({
     },
     name: {
         display: 'inline-block',
-        width: 125
+        width: 140
     },
     cost: {
         display: 'inline-block',
-        marginRight: 5
+        marginRight: 5,
+        width: 45
     },
     row: {
-        marginBottom: 10
+        marginBottom: 15
     },
     units: {
         display: 'inline-block',

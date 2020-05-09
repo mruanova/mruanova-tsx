@@ -20,7 +20,8 @@ export const useStyles = makeStyles(theme => ({
             background: 'white'
         },
         cursor: 'pointer',
-        paddingLeft: 5,
+        height: 22,
+        padding: 8,
         marginBottom: 10
     },
     name: {
@@ -30,7 +31,7 @@ export const useStyles = makeStyles(theme => ({
     cost: {
         display: 'inline-block',
         textAlign: 'right',
-        width: 100
+        width: 90
     }
 }),
     { name: 'Drinks' },

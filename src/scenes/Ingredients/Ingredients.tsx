@@ -24,8 +24,7 @@ const Ingredients = (props: Props) => {
         const buttonId = `button${element.id}`;
         indents.push(
             <div key={element.id}>
-                <div className={classes.name}>{element.name}</div>
-                <button id={buttonId} className={classes.button} onClick={handleClick(element)}>+ 1</button>
+                <button id={buttonId} className={classes.button} onClick={handleClick(element)}>{element.name}</button>
             </div>
         )
     });

@@ -13,10 +13,6 @@ export const useStyles = makeStyles(theme => ({
     subtitle: {
         color: 'goldenrod'
     },
-    name: {
-        display: 'inline-block',
-        width: 125
-    },
     text: {
         textAlign: 'right',
         width: 50
@@ -28,7 +24,8 @@ export const useStyles = makeStyles(theme => ({
         fontWeight: 'bold',
         marginTop: 10,
         marginLeft: 10,
-        width: 100,
+        height: 22,
+        width: 230,
         '&:hover': { textDecoration: 'underline' },
     }
 }),
