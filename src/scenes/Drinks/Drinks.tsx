@@ -3,6 +3,7 @@ import { useStyles } from './useStyles';
 import Drink from '../../interfaces/Drink';
 import Item from '../../interfaces/Item';
 import { isAvailable } from '../../utilities/isAvailable';
+import Action from '../../interfaces/Action';
 
 interface Props {
     drinks: Drink[];
@@ -14,11 +15,16 @@ const Drinks = (props: Props) => {
     const classes = useStyles();
     const { drinks, items, dispatch } = props;
     const indents: any[] = [];
-    const instructions = 'Click reset to start the inventory.';
+    const instructions = 'Click +1 to restock the inventory.';
     const title = 'Drinks';
     const subtitle = 'List of drinks available for sale :';
+    const cashier = 'Mauricio Ruanova';
     const handleClick = (drink: Drink) => (_event: React.MouseEvent | React.KeyboardEvent) => {
-        dispatch({ type: 'sale', sale: drink });
+        drink.timestamp = new Date().toString();
+        drink.receipt = Date.now().toString();
+        drink.cashier = cashier;
+        const action = new Action({ type: 'sale', sale: drink });
+        dispatch(action);
     };
     drinks.forEach((drink, index) => {
         drink.cost = 0;

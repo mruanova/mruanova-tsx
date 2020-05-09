@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStyles } from './useStyles';
 import Item from '../../interfaces/Item';
+import Action from '../../interfaces/Action';
 
 interface Props {
     items: Item[];
@@ -10,13 +11,14 @@ interface Props {
 const Ingredients = (props: Props) => {
     const classes = useStyles();
     const { items, dispatch } = props;
-    const instructions = 'Click reset to start the inventory.'
+    const instructions = 'Click +1 to restock the inventory.';
     const title = 'Ingredients';
     const subtitle = 'Here you can restock ingredients :';
     const indents: any[] = [];
     const [value] = React.useState(1);
     const handleClick = (item: Item) => (_event: React.MouseEvent | React.KeyboardEvent) => {
-        dispatch({ type: 'add', value, item });
+        const action = new Action({ type: 'add', value, item });
+        dispatch(action);
     };
     items.forEach((element) => {
         const buttonId = `button${element.id}`;

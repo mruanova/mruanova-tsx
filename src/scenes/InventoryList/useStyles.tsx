@@ -21,20 +21,13 @@ export const useStyles = makeStyles(theme => ({
         display: 'inline-block',
         marginRight: 5
     },
-    reset: {
-        backgroundColor: 'goldenrod',
-        borderRadius: 5,
-        color: 'white',
-        fontWeight: 'bold',
-        marginTop: 10,
-        width: 240,
-        '&:hover': { textDecoration: 'underline' },
-    },
     row: {
         marginBottom: 10
     },
     units: {
         display: 'inline-block',
+        textAlign: 'right',
+        width: 50
     },
 }),
     { name: 'Inventory' },

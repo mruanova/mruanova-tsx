@@ -10,9 +10,12 @@ export const useStyles = makeStyles(theme => ({
         verticalAlign: 'top',
         margin: 10
     },
-    appLink: {
+    sub: {
         color: 'goldenrod'
     },
+    row:{
+        marginBottom:10
+    }
 }),
     { name: 'Sales' },
 );

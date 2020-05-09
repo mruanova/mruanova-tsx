@@ -4,18 +4,14 @@ import Item from '../../interfaces/Item';
 
 interface Props {
     items: Item[];
-    dispatch: Function;
 }
 
 const InventoryList = (props: Props) => {
     const classes = useStyles();
-    const { items, dispatch } = props;
-    const instructions = 'Click reset to start the inventory.'
+    const { items } = props;
+    const instructions = 'Click +1 to restock the inventory.';
     const title = 'Inventory';
     const subtitle = 'List of the ingredients available :';
-    const handleReset = () => {
-        dispatch({ type: 'reset' });
-    };
     const indents: any[] = [];
     items.forEach((element, index) => {
         indents.push(
@@ -35,7 +31,6 @@ const InventoryList = (props: Props) => {
                     indents
                 ) : (<div>{instructions}</div>)
             }
-            <button id="reset" className={classes.reset} onClick={handleReset}>Reset Inventory</button>
         </div>
     );
 }
