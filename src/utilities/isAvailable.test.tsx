@@ -46,5 +46,4 @@ it('Coffee Drink is not available when missing iventory', () => {
   });
   const available = isAvailable(coffee, items);
   expect(available).toEqual(false);
-  expect(coffee.cost).toEqual(0);
 });
