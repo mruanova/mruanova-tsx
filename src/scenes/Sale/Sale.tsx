@@ -16,6 +16,7 @@ const Sale = (props: Props) => {
     const title = 'Barista Matic';
     const subtitle = 'Would you like a coffee ?';
     const indents: any[] = [];
+
     sale.ingredients.forEach((ingredient: Ingredient, index) => {
         const temp = items.find((item: Item) => {
             return item.id === ingredient.itemId;
@@ -30,6 +31,7 @@ const Sale = (props: Props) => {
             );
         }
     });
+    
     return (
         <div className={classes.box}>
             <h1>{title}</h1>

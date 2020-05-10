@@ -13,6 +13,7 @@ const InventoryList = (props: Props) => {
     const title = 'Inventory';
     const subtitle = 'List of the ingredients available';
     const indents: any[] = [];
+
     items.forEach((element: Item, index) => {
         indents.push(
             <div key={index} className={classes.row}>
@@ -22,6 +23,7 @@ const InventoryList = (props: Props) => {
             </div>
         )
     });
+
     return (
         <div className={classes.box}>
             <h1>{title}</h1>

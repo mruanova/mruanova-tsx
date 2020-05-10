@@ -1,6 +1,7 @@
 /** 
+ * Ingredient:
  * one drink has many ingredients
- * one ingredient matches one inventory item
+ * one ingredient points to one inventory item
  */
 export class Ingredient {
   itemId: number = 0;

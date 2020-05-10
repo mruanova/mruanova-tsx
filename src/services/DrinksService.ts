@@ -4,12 +4,12 @@ import Drink from '../interfaces/Drink';
 const URL = `https://246gg84zg8.execute-api.us-west-2.amazonaws.com/dev/drinks`;
 
 export default class DrinksService {
-  /** get */
+  /** get drinks from database */
   static getDrinks() {
     return Axios.get(URL);
   }
 
-  /** update */
+  /** update/insert drinks from/into database */
   static putDrinks(request: Drink) {
     return Axios.put(URL, request);
   }

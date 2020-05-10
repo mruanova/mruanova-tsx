@@ -1,8 +1,12 @@
 import Ingredient from './Ingredient';
 /** 
- * Drinks:
- * coffee, decaf-coffee, caffee-latte, 
- * cafe-americano, cafe-mocha, capuccino
+ * Drink:
+ * coffee
+ * decaf-coffee
+ * caffe-latte 
+ * cafe-americano
+ * cafe-mocha
+ * capuccino
  */
 export class Drink {
   id: number = 0

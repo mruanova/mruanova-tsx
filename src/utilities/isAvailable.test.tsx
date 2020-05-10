@@ -33,7 +33,7 @@ it('Coffee Drink is not available when missing iventory', () => {
     ], cost: 0,
   });
   const available = isAvailable(coffee, items);
-  expect(available).toEqual(false);
+  expect(available).toEqual(false); // expected 3 units of coffee got only 1
 });
 
 it('Coffee drink is correctly priced', () => {

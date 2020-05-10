@@ -1,7 +1,9 @@
 import Drink from './Drink';
 import Item from './Item';
 /** 
- * Action
+ * Action:
+ * 1) sell drink and discount inventory items
+ * 2) restock inventory item and clear last sale
  */
 export class Action {
   sale: Drink = new Drink();

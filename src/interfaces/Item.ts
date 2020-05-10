@@ -1,8 +1,14 @@
 /** 
  * Item:
- * coffee, decaf-coffee, espresso, 
- * sugar, cocoa, steamed-milk, 
- * cream, whipped-cream, foamed-cream
+ * coffee
+ * decaf-coffee
+ * espresso
+ * sugar
+ * cocoa
+ * cream
+ * whipped-cream
+ * foamed-cream
+ * steamed-milk
  */
 export class Item {
   id: number = 0;

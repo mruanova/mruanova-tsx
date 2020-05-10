@@ -29,6 +29,7 @@ const App: React.FC = () => {
   const [sale, setSale] = React.useState(defaultSale);
 
   React.useEffect(() => {
+    /** get inventory items from database */
     ItemService.getItems()
       .then((response: any) => {
         const temp = response.data.Items.sort((a: Item, b: Item) => {
@@ -39,6 +40,7 @@ const App: React.FC = () => {
       .catch((error: any) => {
         console.error(error);
       });
+    /** get drinks from database */
     DrinksService.getDrinks()
       .then((response: any) => {
         const temp = response.data.Items.sort((a: Item, b: Item) => {
@@ -51,6 +53,7 @@ const App: React.FC = () => {
       });
   }, [sale]);
 
+  /** sell drink and discount inventory items */
   const handleDrinks = (action: Action) => {
     action.sale.ingredients.forEach((ingredient: Ingredient) => {
       const item = items.find((item: Item) => {
@@ -70,6 +73,7 @@ const App: React.FC = () => {
     });
   };
 
+  /** add ingredient to restock inventory items */
   const handleIngredients = (action: Action) => {
     const item = items.find((item: Item) => {
       return item.id === action.item.id
@@ -95,9 +99,9 @@ const App: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Sale sale={sale} items={items} />
-      <Drinks drinks={drinks} items={items} dispatch={handleDrinks} />
+      <Drinks drinks={drinks} items={items} onHandleClick={handleDrinks} />
       <InventoryList items={items} />
-      <Ingredients items={items} dispatch={handleIngredients} />
+      <Ingredients items={items} onHandleClick={handleIngredients} />
     </div >
   );
 }

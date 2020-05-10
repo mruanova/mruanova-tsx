@@ -2,6 +2,7 @@ import Drink from '../interfaces/Drink';
 import Item from '../interfaces/Item';
 import Ingredient from '../interfaces/Ingredient';
 
+/** validates the units of inventory items before selling a drink */
 export function isAvailable(drink: Drink, items: Item[]): boolean {
     let available = true;
     drink.ingredients.forEach((ingredient: Ingredient) => {

@@ -11,7 +11,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<Drinks
     drinks={drinks}
     items={items}
-    dispatch={() => { }}
+    onHandleClick={() => { }}
   />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
