@@ -1,16 +1,17 @@
 import Axios from 'axios';
 import Drink from '../interfaces/Drink';
-
-const URL = `https://246gg84zg8.execute-api.us-west-2.amazonaws.com/dev/drinks`;
+import { API } from '../constants/API';
 
 export default class DrinksService {
   /** get drinks from database */
   static getDrinks() {
-    return Axios.get(URL);
+    const url = `${API}/drinks`;
+    return Axios.get(url);
   }
 
   /** update/insert drinks from/into database */
   static putDrinks(request: Drink) {
-    return Axios.put(URL, request);
+    const url = `${API}/drinks`;
+    return Axios.put(url, request);
   }
 }
