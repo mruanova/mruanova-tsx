@@ -23,7 +23,7 @@ export const useStyles = makeStyles(theme => ({
         width: 45
     },
     row: {
-        marginBottom: 15
+        marginBottom: 14
     },
     units: {
         display: 'inline-block',
