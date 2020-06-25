@@ -27,6 +27,32 @@ const App: FC = () => {
     .catch((error: any) => {
       console.error(error);
     });
+
+  const handleRequestSort = (
+    event: React.ChangeEvent<{}>,
+    property: string,
+  ) => {
+    console.log(property);
+    /*
+    let order: SortOrder = SortOrder.desc;
+    if (sortOptions.orderBy === property && sortOptions.order === 'desc') {
+      order = SortOrder.asc;
+    }
+    setSortOptions(
+      new SortOptions({
+        order,
+        property,
+      }),
+    );
+    const temp = sortByColumnHeader(
+      quoteResponse.quotes.slice(),
+      order,
+      property,
+    );
+    setProjects(temp);
+    */
+  };
+
   return (
     <div className={classes.app}>
       <AppBar position="static" className={classes.appBar}>
@@ -38,7 +64,7 @@ const App: FC = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Example projects={projects}></Example>
+      <Example data={projects} onHandleRequestSort={handleRequestSort}></Example>
     </div>
   );
 };

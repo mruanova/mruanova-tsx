@@ -4,19 +4,28 @@ import { TableSortLabel } from '@material-ui/core';
 import { FixedSizeList as List } from 'react-window';
 import classNames from 'classnames';
 import Row from '../Row/Row';
+import Project from '../../interfaces/Project';
 
-const Example = (props: any) => {
-  const { projects } = props;
+interface Props {
+  data: Project[];
+  onHandleRequestSort: (
+    event: React.MouseEvent,
+    property: string,
+  ) => void;
+}
+
+const Example = (props: Props) => {
+  const { data, onHandleRequestSort } = props;
   const classes = useStyles();
 
   const columns = ['ProjectId', 'Position', 'Website', 'Address', 'Coordinates'];
-  const orderBy = 'ProjectId';
-  const order = 'asc';
-  
-  const createSortHandler = (property: any) => (event: any) => {
-    console.log(property);
+  const orderBy = 'ProjectId'; // TODO:
+  const order = 'asc'; // TODO:
+
+  const createSortHandler = (property: string) => (event: React.MouseEvent) => {
+    onHandleRequestSort(event, property);
   };
-  
+
   const indents = (
     <div className={classes.container}>
       {columns.map((column) => {
@@ -35,14 +44,14 @@ const Example = (props: any) => {
       <List
         className={classes.list}
         height={150}
-        // height={36 * projects.length}
+        // height={36 * data.length}
         // itemCount={1000}
-        itemCount={projects.length}
+        itemCount={data.length}
         // itemSize={150}
         itemSize={36}
         // width={300}
         width={'100%'}
-        itemData={projects}
+        itemData={data}
       >
         {Row}
       </List>
