@@ -13,19 +13,13 @@ interface Props extends ListChildComponentProps {
 const Row = (props: Props) => {
   const classes = useStyles();
   const { index, style, data } = props;
-  const indents: any[] = [];
-  data.forEach((element, i) => {
-    indents.push(
-      <div key={i} className={classes.row}>
-        <span>{element.ProjectId}</span>
-        <span>{element.Position}</span>
-        <span>{element.Website}</span>
-        <span>{element.Address}</span>
-        <span>{element.Coordinates}</span>
-      </div>
-    );
-  });
-  return (<div key={index} style={style}>{indents}</div>);
+  return (<div key={index} style={style} className={classes.row}>
+    <div className={classes.ProjectId}>{data[index].ProjectId}</div>
+    <div className={classes.Position}>{data[index].Position}</div>
+    <div className={classes.Website}>{data[index].Website}</div>
+    <div className={classes.Address}>{data[index].Address}</div>
+    <div className={classes.Coordinates}>{data[index].Coordinates[0]},&nbsp;{data[index].Coordinates[1]}</div>
+  </div>);
 };
 
 export default Row;

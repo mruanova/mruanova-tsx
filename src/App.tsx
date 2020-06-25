@@ -9,9 +9,24 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from './useStyles';
 import './App.css';
 import Example from './scenes/Example/Example';
+import Project from './interfaces/Project';
+import ProjectsService from './services/ProjectsService';
 
 const App: FC = () => {
   const classes = useStyles();
+  // const defaultProject = new Project();
+  const [projects, setProjects] = React.useState([]);
+  /** get inventory items from database */
+  ProjectsService.getProjects()
+    .then((response: any) => {
+      const temp = response.data.body.Items.sort((a: Project, b: Project) => {
+        return a.ProjectId - b.ProjectId;
+      });
+      setProjects(temp);
+    })
+    .catch((error: any) => {
+      console.error(error);
+    });
   return (
     <div className={classes.app}>
       <AppBar position="static" className={classes.appBar}>
@@ -23,7 +38,7 @@ const App: FC = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Example></Example>
+      <Example projects={projects}></Example>
     </div>
   );
 };
