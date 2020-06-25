@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles(theme => ({
     row: {
+        paddingTop: 10,
         "&:nth-child(even)": {
             background: "#f2f2f2"
         }
@@ -14,21 +15,21 @@ export const useStyles = makeStyles(theme => ({
     Position: {
         display: 'inline-block',
         textAlign: 'left',
-        width: 375,
+        width: 300,
     },
     Website: {
         display: 'inline-block',
         textAlign: 'left',
-        width: 175,
+        width: 150,
     },
     Address: {
         display: 'inline-block',
         textAlign: 'left',
-        width: 350,
+        width: 250,
     },
     Coordinates: {
         display: 'inline-block',
         textAlign: 'right',
-        width: 200,
+        width: 100,
     },
 }));

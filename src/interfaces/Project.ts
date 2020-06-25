@@ -4,8 +4,8 @@
 export class Project {
   ProjectId: number = 0;
   Website: string = '';
-  Address: number = 0;
-  Position: number = 0;
+  Address: string = '';
+  Position: string = '';
   Coordinates: number[] = [];
   constructor(obj?: any) {
     if (obj) {

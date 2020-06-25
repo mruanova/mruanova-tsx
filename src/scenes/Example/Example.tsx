@@ -8,14 +8,17 @@ import Row from '../Row/Row';
 const Example = (props: any) => {
   const { projects } = props;
   const classes = useStyles();
+
   const columns = ['ProjectId', 'Position', 'Website', 'Address', 'Coordinates'];
   const orderBy = 'ProjectId';
   const order = 'asc';
+  
   const createSortHandler = (property: any) => (event: any) => {
     console.log(property);
   };
+  
   const indents = (
-    <>
+    <div className={classes.container}>
       {columns.map((column) => {
         return (<TableSortLabel
           active={column ? orderBy === column : false}
@@ -30,7 +33,7 @@ const Example = (props: any) => {
         </TableSortLabel>);
       })}
       <List
-        // className={classes.list}
+        className={classes.list}
         height={150}
         // height={36 * projects.length}
         // itemCount={1000}
@@ -43,7 +46,7 @@ const Example = (props: any) => {
       >
         {Row}
       </List>
-    </>
+    </div>
   );
   return indents;
 };
