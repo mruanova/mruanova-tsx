@@ -37,30 +37,26 @@ export const useStyles = makeStyles(
                 textAlign: 'left',
             },
             ProjectId: {
-                flexGrow: 0,
-                marginRight: 15,
-                width: 105,
+                // background: 'aqua',
+                margin: 0,
+                width: 75,
             },
             Position: {
-                flexGrow: 0,
-                marginRight: 15,
-                width: 105,
+                // background: 'aqua',
+                width: 275,
             },
             Website: {
-                flexGrow: 0,
-                marginRight: 15,
-                width: 105,
+                // background: 'aqua',
+                width: 125,
             },
             Address: {
-                flexGrow: 0,
-                marginRight: 15,
-                width: 105,
+                // background: 'aqua',
+                width: 250,
             },
             Coordinates: {
-                flexGrow: 0,
-                marginRight: 15,
-                width: 105,
-            },
+                // background: 'aqua',
+                width: 160,
+            }
         });
     },
     { name: 'Example' },
