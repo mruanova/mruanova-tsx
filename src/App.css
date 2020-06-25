@@ -32,3 +32,4 @@ h2 { font-family: 'Indie Flower', arial, serif; font-size:12pt;}
     color: #999;
 
   }
+.row:nth-child(even) {background-color: #f2f2f2;}
