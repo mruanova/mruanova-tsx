@@ -20,36 +20,40 @@ const App: FC = () => {
   const [projects, setProjects] = React.useState(defaultProjects);
   const [orderBy, setOrderBy] = React.useState('ProjectId');
   const [order, setOrder] = React.useState(SortOrder.asc);
-  
-  /** get projects from database */
-  ProjectsService.getProjects()
-    .then((response: any) => {
-      const temp = response.data.body.Items.sort((a: Project, b: Project) => {
-        return a.ProjectId - b.ProjectId;
+
+  if (projects.length === 0) {
+    /** get projects from database */
+    ProjectsService.getProjects()
+      .then((response: any) => {
+        const temp = response.data.body.Items.sort((a: Project, b: Project) => {
+          return a.ProjectId - b.ProjectId;
+        });
+        setProjects(temp);
+      })
+      .catch((error: any) => {
+        console.error(error);
       });
-      setProjects(temp);
-    })
-    .catch((error: any) => {
-      console.error(error);
-    });
+  }
 
   const handleRequestSort = (
     _event: React.ChangeEvent<{}>,
     property: string,
   ) => {
     console.log(property);
-    // let temp = SortOrder.desc;
+    console.log(order);
     let temp = order;
-    if (orderBy === property && temp === SortOrder.desc) {
+    if (orderBy === property && temp === SortOrder.asc) {
+      temp = SortOrder.desc;
+    } else if (orderBy === property && temp === SortOrder.desc) {
       temp = SortOrder.asc;
     }
-    setOrder(temp);
-    setOrderBy(property);
     const sortedProjects = sortByColumnHeader(
       projects.slice(),
-      order,
+      temp,
       property,
     );
+    setOrder(temp);
+    setOrderBy(property);
     setProjects(sortedProjects);
   };
 
