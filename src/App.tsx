@@ -11,12 +11,17 @@ import './App.css';
 import Example from './scenes/Example/Example';
 import Project from './interfaces/Project';
 import ProjectsService from './services/ProjectsService';
+import SortOrder from './enums/SortOrder';
+import sortByColumnHeader from './utilities/sortByColumnHeader';
 
 const App: FC = () => {
   const classes = useStyles();
-  // const defaultProject = new Project();
-  const [projects, setProjects] = React.useState([]);
-  /** get inventory items from database */
+  const defaultProjects: Project[] = [];
+  const [projects, setProjects] = React.useState(defaultProjects);
+  const [orderBy, setOrderBy] = React.useState('ProjectId');
+  const [order, setOrder] = React.useState(SortOrder.asc);
+  
+  /** get projects from database */
   ProjectsService.getProjects()
     .then((response: any) => {
       const temp = response.data.body.Items.sort((a: Project, b: Project) => {
@@ -29,29 +34,26 @@ const App: FC = () => {
     });
 
   const handleRequestSort = (
-    event: React.ChangeEvent<{}>,
+    _event: React.ChangeEvent<{}>,
     property: string,
   ) => {
     console.log(property);
-    /*
-    let order: SortOrder = SortOrder.desc;
-    if (sortOptions.orderBy === property && sortOptions.order === 'desc') {
-      order = SortOrder.asc;
+    // let temp = SortOrder.desc;
+    let temp = order;
+    if (orderBy === property && temp === SortOrder.desc) {
+      temp = SortOrder.asc;
     }
-    setSortOptions(
-      new SortOptions({
-        order,
-        property,
-      }),
-    );
-    const temp = sortByColumnHeader(
-      quoteResponse.quotes.slice(),
+    setOrder(temp);
+    setOrderBy(property);
+    const sortedProjects = sortByColumnHeader(
+      projects.slice(),
       order,
       property,
     );
-    setProjects(temp);
-    */
+    setProjects(sortedProjects);
   };
+
+  // <Header></Header>
 
   return (
     <div className={classes.app}>
@@ -64,9 +66,9 @@ const App: FC = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Example data={projects} onHandleRequestSort={handleRequestSort}></Example>
+      <Example data={projects} onHandleRequestSort={handleRequestSort} orderBy={orderBy} order={order}></Example>
     </div>
   );
 };
-// <Header></Header>
+
 export default App;

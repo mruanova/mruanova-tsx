@@ -5,6 +5,7 @@ import { FixedSizeList as List } from 'react-window';
 import classNames from 'classnames';
 import Row from '../Row/Row';
 import Project from '../../interfaces/Project';
+import SortOrder from '../../enums/SortOrder';
 
 interface Props {
   data: Project[];
@@ -12,15 +13,15 @@ interface Props {
     event: React.MouseEvent,
     property: string,
   ) => void;
+  orderBy: string,
+  order: SortOrder
 }
 
-const Example = (props: Props) => {
-  const { data, onHandleRequestSort } = props;
-  const classes = useStyles();
+const columns = ['ProjectId', 'Position', 'Website', 'Address', 'Coordinates'];
 
-  const columns = ['ProjectId', 'Position', 'Website', 'Address', 'Coordinates'];
-  const orderBy = 'ProjectId'; // TODO:
-  const order = 'asc'; // TODO:
+const Example = (props: Props) => {
+  const { data, onHandleRequestSort, orderBy, order } = props;
+  const classes = useStyles();
 
   const createSortHandler = (property: string) => (event: React.MouseEvent) => {
     onHandleRequestSort(event, property);
