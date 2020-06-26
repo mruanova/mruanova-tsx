@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-// import Header from './scenes/Header/Header';
+import Header from './scenes/Header/Header';
 import { useStyles } from './useStyles';
 import './App.css';
 import Example from './scenes/Example/Example';
@@ -56,20 +56,21 @@ const App: FC = () => {
     setOrderBy(property);
     setProjects(sortedProjects);
   };
-
-  // <Header></Header>
-
+  /*
+  <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+    <MenuIcon />
+  </IconButton>
+  */
+  // <Button color="inherit">Login</Button>
   return (
     <div className={classes.app}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>Portfolio</Typography>
-          <Button color="inherit">Login</Button>
+
         </Toolbar>
       </AppBar>
+      <Header></Header>
       <Example data={projects} onHandleRequestSort={handleRequestSort} orderBy={orderBy} order={order}></Example>
     </div>
   );

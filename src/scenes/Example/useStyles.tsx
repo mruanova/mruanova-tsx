@@ -13,6 +13,8 @@ export const useStyles = makeStyles(
         // const light = theme.palette.type === 'light';
         return createStyles<classIndexTypes, any>({
             container: {
+                display: 'inline-block',
+                margin: 'auto',
                 width: 960,
             },
             list: {
@@ -32,29 +34,29 @@ export const useStyles = makeStyles(
                 fontSize: 12,
                 fontWeight: 600,
                 lineHeight: 2,
-                marginLeft: 12,
+                marginLeft: '12px!important',
                 paddingLeft: 5,
                 textAlign: 'left',
             },
             ProjectId: {
-                // background: 'aqua',
+                // backgroundColor: 'aqua!important',
                 margin: 0,
                 width: 75,
             },
             Position: {
-                // background: 'aqua',
+                // backgroundColor: 'aqua!important',
                 width: 275,
             },
             Website: {
-                // background: 'aqua',
+                // backgroundColor: 'aqua!important',
                 width: 125,
             },
             Address: {
-                // background: 'aqua',
+                // backgroundColor: 'aqua!important',
                 width: 250,
             },
             Coordinates: {
-                // background: 'aqua',
+                // backgroundColor: 'aqua!important',
                 width: 160,
             }
         });

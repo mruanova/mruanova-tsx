@@ -39,3 +39,8 @@ body {
     stroke: #000;
     shape-rendering: crispEdges;
 }
+
+#chart {
+    margin: auto!important;
+    width: 960px;
+}
