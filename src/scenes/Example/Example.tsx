@@ -21,7 +21,7 @@ const columns = ['ProjectId', 'Position', 'Website', 'Address', 'Coordinates'];
 
 const Example = (props: Props) => {
   const { data, onHandleRequestSort, orderBy, order } = props;
-  const classes = useStyles();
+  const classes = useStyles(props);
 
   const createSortHandler = (property: string) => (event: React.MouseEvent) => {
     onHandleRequestSort(event, property);

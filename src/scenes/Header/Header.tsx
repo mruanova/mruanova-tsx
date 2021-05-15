@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../giphy.gif';
+// import logo from '../../giphy.gif';
 import aws from '../../aws-certified-logo_color-horz_270x45.png';
 import { useStyles } from './useStyles';
 
